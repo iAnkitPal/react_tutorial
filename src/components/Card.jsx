@@ -1,11 +1,6 @@
-import "./App.css";
+// import React from "react";
 
-// eslint-disable-next-line react/prop-types
-export function Card({deviceName = '-',demoObj}) {
-
-  console.log(deviceName);
-  console.log(demoObj);
-
+export function Card() {
   return (
     <div className="w-[300px] rounded-md border">
       <img
@@ -14,9 +9,10 @@ export function Card({deviceName = '-',demoObj}) {
         className="h-[200px] w-full rounded-md object-cover"
       />
       <div className="p-4">
-        <h1 className="text-lg font-semibold">{deviceName}</h1>
+        <h1 className="text-lg font-semibold">About Macbook</h1>
         <p className="mt-3 text-sm text-gray-600">
-        {demoObj?.desc ||  '-'}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+          debitis?
         </p>
         <button
           type="button"
@@ -28,18 +24,4 @@ export function Card({deviceName = '-',demoObj}) {
     </div>
   );
 }
-
-function App() {
-  const demoObj = {
-    desc:"This is product One!"
-  }
-  return (
-    <>
-      <Card deviceName="Macbook" demoObj={demoObj} />
-      <Card deviceName="Lenovo"  demoObj={demoObj}/>
-      <Card deviceName="Dell"  demoObj={demoObj}/>
-    </>
-  );
-}
-
-export default App;
+// export default Card;
