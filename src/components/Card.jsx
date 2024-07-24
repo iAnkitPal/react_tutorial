@@ -1,6 +1,8 @@
-// import React from "react";
+export default function Card({deviceName = '-',demoObj}) {
 
-export function Card() {
+  console.log(deviceName);
+  console.log(demoObj);
+
   return (
     <div className="w-[300px] rounded-md border">
       <img
@@ -9,10 +11,9 @@ export function Card() {
         className="h-[200px] w-full rounded-md object-cover"
       />
       <div className="p-4">
-        <h1 className="text-lg font-semibold">About Macbook</h1>
+        <h1 className="text-lg font-semibold">{deviceName}</h1>
         <p className="mt-3 text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
-          debitis?
+        {demoObj?.desc ||  '-'}
         </p>
         <button
           type="button"
@@ -24,4 +25,3 @@ export function Card() {
     </div>
   );
 }
-// export default Card;
