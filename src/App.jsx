@@ -1,4 +1,5 @@
 import "./App.css";
+import { BgChanger } from "./components/BgChanger";
 import Card from "./components/Card";
 
 function App() {
@@ -7,9 +8,10 @@ function App() {
   }
   return (
     <>
-      <Card deviceName="Macbook" demoObj={demoObj} />
+      {/* <Card deviceName="Macbook" demoObj={demoObj} />
       <Card deviceName="Lenovo"  demoObj={demoObj}/>
-      <Card deviceName="Dell"  demoObj={demoObj}/>
+      <Card deviceName="Dell"  demoObj={demoObj}/> */}
+      <BgChanger />
     </>
   );
 }
