@@ -3,7 +3,9 @@ export function InputBox({
   label,
   className = "",
   options = [],
-  onCurrencyChange
+  onCurrencyChange,
+  value="1",
+  selected
 }) {
  
 
@@ -18,6 +20,8 @@ export function InputBox({
                   className="outline-none w-full bg-transparent py-1.5"
                   type="number"
                   placeholder="Amount"
+                  value={value}
+                  readOnly
               />
           </div>
           <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -27,7 +31,7 @@ export function InputBox({
                   onChange={(e) => onCurrencyChange &&  onCurrencyChange(e.target.value)}
               >
                   {options.map((opts) => (
-                      <option key={opts} value="{opts}">
+                      <option key={opts}>
                           {opts}
                       </option>
                   ))}

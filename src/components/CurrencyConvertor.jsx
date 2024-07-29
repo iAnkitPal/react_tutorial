@@ -5,13 +5,22 @@ import {useCurrencyInfo} from "../hooks/UseCurrencyInfo";
 export function CurrencyConvertor() {
   const [options,setOptions] = useState([]);
   const [selectedTo,setSelectedTo] = useState("");
-  const [selectedFrom,setSelectedFrom] = useState("");
+  const [selectedFrom,setSelectedFrom] = useState("usd");
+  const [amountToConvert,setAmountToConvert] = useState();
+
+  function calculate() {
+    console.log(`${selectedFrom} to ${selectedTo}`)
+    console.log(getCurrency[selectedTo]*amountToConvert);
+    setSelectedTo(getCurrency[selectedTo]*amountToConvert);
+  }
 
 
-  const getCurrency = useCurrencyInfo("inr");
+
+  const getCurrency = useCurrencyInfo(selectedFrom);
   useEffect(() => {
     setOptions(Object.keys(getCurrency));
-  },[getCurrency,setOptions])
+    console.log(getCurrency);
+  },[getCurrency,setOptions,selectedFrom])
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -27,7 +36,7 @@ export function CurrencyConvertor() {
             }}
           >
             <div className="w-full mb-1">
-              <InputBox label="From" options={options} onCurrencyChange={(e) => console.log(e)}/>
+              <InputBox label="From" options={options} value={amountToConvert} onCurrencyChange={(e) => {setSelectedFrom(e);setAmountToConvert(1)}} />
             </div>
             <div className="relative w-full h-0.5">
               <button
@@ -38,11 +47,12 @@ export function CurrencyConvertor() {
               </button>
             </div>
             <div className="w-full mt-1 mb-4">
-              <InputBox label="To" options={options} onCurrencyChange={(e) => console.log(e)} />
+              <InputBox label="To" options={options} onCurrencyChange={(e) => setSelectedTo(e)} value={selectedTo} />
             </div>
             <button
               type="submit"
               className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
+              onClick={calculate}
             >
               Convert
             </button>
