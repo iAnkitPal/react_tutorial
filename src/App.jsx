@@ -4,7 +4,7 @@ import {CurrencyConvertor} from "./components/CurrencyConvertor";
 import {useCurrencyInfo} from "./hooks/UseCurrencyInfo";
 
 function App() {
-  const getCurrency = useCurrencyInfo("usd");
+  const getCurrency = useCurrencyInfo("inr");
   setTimeout(() => {
     console.log(getCurrency);
   },2000);
