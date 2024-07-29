@@ -1,8 +1,9 @@
 
 export function InputBox({
   label,
-  
   className = "",
+  options = [],
+  onCurrencyChange
 }) {
  
 
@@ -23,12 +24,13 @@ export function InputBox({
               <p className="text-black/40 mb-2 w-full">Currency Type</p>
               <select
                   className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
-                  
+                  onChange={(e) => onCurrencyChange &&  onCurrencyChange(e.target.value)}
               >
-                  
-                      <option value="usd">
-                          usd
+                  {options.map((opts) => (
+                      <option key={opts} value="{opts}">
+                          {opts}
                       </option>
+                  ))}
               
               </select>
           </div>

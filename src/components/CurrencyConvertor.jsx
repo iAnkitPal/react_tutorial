@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import { InputBox } from "../containers/InputBox";
+import {useCurrencyInfo} from "../hooks/UseCurrencyInfo";
 
 export function CurrencyConvertor() {
+  const [options,setOptions] = useState([]);
+  const [selectedTo,setSelectedTo] = useState("");
+  const [selectedFrom,setSelectedFrom] = useState("");
+
+
+  const getCurrency = useCurrencyInfo("inr");
+  useEffect(() => {
+    setOptions(Object.keys(getCurrency));
+  },[getCurrency,setOptions])
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -16,7 +27,7 @@ export function CurrencyConvertor() {
             }}
           >
             <div className="w-full mb-1">
-              <InputBox label="From" />
+              <InputBox label="From" options={options} onCurrencyChange={(e) => console.log(e)}/>
             </div>
             <div className="relative w-full h-0.5">
               <button
@@ -27,7 +38,7 @@ export function CurrencyConvertor() {
               </button>
             </div>
             <div className="w-full mt-1 mb-4">
-              <InputBox label="To" />
+              <InputBox label="To" options={options} onCurrencyChange={(e) => console.log(e)} />
             </div>
             <button
               type="submit"
