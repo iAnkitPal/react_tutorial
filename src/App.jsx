@@ -1,17 +1,13 @@
 import "./App.css";
-import { PasswordGenerator } from "./components/PasswordGenerator";
-
+import Footer from "./Shared/Components/Footer";
+import Header from "./Shared/Components/Header";
+import {Outlet} from "react-router-dom";
 function App() {
-  // const demoObj = {
-  //   desc:"This is product One!"
-  // }
   return (
     <>
-      {/* <Card deviceName="Macbook" demoObj={demoObj} />
-      <Card deviceName="Lenovo"  demoObj={demoObj}/>
-      <Card deviceName="Dell"  demoObj={demoObj}/> */}
-      {/* <BgChanger /> */}
-      <PasswordGenerator />
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   );
 }
