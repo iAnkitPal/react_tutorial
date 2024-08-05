@@ -1,5 +1,7 @@
 import "./App.css";
-import { PasswordGenerator } from "./components/PasswordGenerator";
+import { Login } from "./components/Login";
+import { Profile } from "./components/Profile";
+import UserContextProvider from "./context/UserContextProvider";
 
 function App() {
   // const demoObj = {
@@ -11,7 +13,11 @@ function App() {
       <Card deviceName="Lenovo"  demoObj={demoObj}/>
       <Card deviceName="Dell"  demoObj={demoObj}/> */}
       {/* <BgChanger /> */}
-      <PasswordGenerator />
+      {/* <PasswordGenerator /> */}
+      <UserContextProvider>
+      <Login />
+      <Profile/>
+      </UserContextProvider>
     </>
   );
 }
