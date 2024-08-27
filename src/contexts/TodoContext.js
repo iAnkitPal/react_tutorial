@@ -3,7 +3,10 @@ import { createContext } from "react";
 
 export const TodoContext = createContext({
   todos:[
-    {}
+    {
+      id:Date.now(),
+      completed:true
+    }
   ],
   addTodo: (todo) => {},
   updateTodo: (id,todo) => {},
